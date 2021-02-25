@@ -1,0 +1,13 @@
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/globaltypes/exceptions/TypeNotSupportedException.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/j2eepatterns/exceptions/StrategyNotFoundException.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/entity/jsonentities/entityInterfaces/FieldGenerator.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/controller/AppController.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/j2eepatterns/patterninterfaces/KeyValueStrategy.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/entity/jsonentities/entitybuilders/EntityBuilderDefaultDelagateStrategy.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/VelocityApplication.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/entity/exceptions/NullFieldException.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/entity/jsonentities/entitybuilders/EntityBuilderBeans.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/entity/testingentities/VelocityTest.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/globaltypes/JavascriptType.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/entity/jsonentities/entityInterfaces/JsonEntityKeySpecifier.java
+/home/berin/Desktop/velocity/src/main/java/com/pixelcat/velocity/entity/jsonentities/JSONIntegerKeyEntity.java

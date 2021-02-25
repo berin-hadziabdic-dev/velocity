@@ -1,6 +1,6 @@
-package com.pixelcat.velocity.globaltypes;
+package com.pixelcat.velocity.javascriptypes;
 
-import com.pixelcat.velocity.globaltypes.exceptions.TypeNotSupportedException;
+import com.pixelcat.velocity.javascriptypes.*;
 
 import lombok.Getter;
 
@@ -29,9 +29,8 @@ public  class JavascriptType {
 
     public JavascriptType(Integer id, String type){
         if(this.isValidType(type)){
-            
-            this.id = id;
-        }
+            this.typeOfField = type;           
+         }
         else {
             throw new TypeNotSupportedException();
         }
@@ -58,6 +57,29 @@ public  class JavascriptType {
             }
 
         return isValidType;
+    }
+
+    public String toJavaTypeString() throws Exception {
+        String returnString  = null;
+
+        switch(this.typeOfField){
+            case JavascriptType.string:
+                returnString = String.class.getName();
+            break;
+            case JavascriptType.boolean_:
+                returnString = Boolean.class.getName();
+            break;
+            case JavascriptType.number:
+                returnString = Integer.class.getName();
+            break;
+            case JavascriptType.object:
+                throw new Exception("Implement javascript to java object type mappin!");
+            default:
+                throw new TypeNotSupportedException();
+        }
+
+        return returnString;
+
     }
     
 }

@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.pixelcat.velocity.entity.jsonentities.entityInterfaces.JsonEntityKeySpecifier;
-import com.pixelcat.velocity.globaltypes.JavascriptType;
+import com.pixelcat.velocity.javascriptypes.*;
 
 import lombok.Data;
 

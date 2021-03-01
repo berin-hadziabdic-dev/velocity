@@ -1,4 +1,4 @@
-package com.pixelcat.velocity.javascriptypes.exceptions;
+package com.pixelcat.velocity.javaandjavascripttypes.exceptions;
 
 /**TypeNotSupportedException is thrown when the user requests to build a JSON with an 
  * unsupported type regardless if the type itself could be a valid Javascript type or an invalid javascript type.

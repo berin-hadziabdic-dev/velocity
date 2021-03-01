@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.pixelcat.velocity.entity.jsonentities.entityInterfaces.JsonEntityKeySpecifier;
-import com.pixelcat.velocity.javascriptypes.*;
+import com.pixelcat.velocity.javaandjavascripttypes.JavascriptType;
 
 import lombok.Data;
 
@@ -13,7 +12,7 @@ import lombok.Data;
  * It contains both a string description
  */
 @Data
-public class JSONIntegerKeyEntity implements JsonEntityKeySpecifier<Integer> {
+public class JSONIntegerKeyEntity  {
 
     private Map<String,JavascriptType> JSONtypes;
   

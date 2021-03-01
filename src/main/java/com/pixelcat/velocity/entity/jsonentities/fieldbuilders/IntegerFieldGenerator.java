@@ -5,13 +5,16 @@ import com.pixelcat.velocity.entity.jsonentities.entityInterfaces.NumericFieldGe
 
 import org.springframework.stereotype.Component;
 
+/**
+ * 
+ */
 @Component
-public class IntegerFieldGenerator extends MaxMin implements NumericFieldGenerator<Integer,Integer>{
+public class IntegerFieldGenerator extends MaxMin implements NumericFieldGenerator<Integer>{
 
 
         @Override
-        public Integer generate(Integer key, Integer min, Integer max) {
-            Float randDouble = this.getRandBetweenMaxAndMin(Float.valueOf(min), Float.valueOf(max));
+        public Integer generate(Float min, Float max) {
+            Float randDouble = this.getRandBetweenMaxAndMin(min, max);
     
             return randDouble.intValue();
         };

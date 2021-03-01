@@ -7,6 +7,6 @@ package com.pixelcat.velocity.entity.jsonentities.entityInterfaces;
  */
 public interface GenericFieldGenerator<K> extends GeneratorTypeIdentifier{
 
-    public Object generate(K key);
+    public Object generate(K key) throws Exception;
     
 }

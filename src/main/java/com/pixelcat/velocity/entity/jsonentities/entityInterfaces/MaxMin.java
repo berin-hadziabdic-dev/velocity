@@ -20,6 +20,7 @@ public abstract class  MaxMin {
      * @param min the minumum of the range of desired values
      * @param max the maximum of the range of desired values
      * @return Float returns a float between max and min
+     * @throws NullPointerException,ArithmeticException when min or max have invalid states.
      */
     public Float getRandBetweenMaxAndMin(Float min, Float max) throws NullPointerException,ArithmeticException{
 

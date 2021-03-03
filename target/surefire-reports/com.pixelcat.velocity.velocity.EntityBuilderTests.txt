@@ -1,9 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.pixelcat.velocity.velocity.EntityBuilderTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.06 s <<< FAILURE! - in com.pixelcat.velocity.velocity.EntityBuilderTests
-initializationError(com.pixelcat.velocity.velocity.EntityBuilderTests)  Time elapsed: 0.005 s  <<< ERROR!
-org.junit.runners.model.InvalidTestClassError: 
-Invalid test class 'com.pixelcat.velocity.velocity.EntityBuilderTests':
-  1. Method testString() should not be static
-

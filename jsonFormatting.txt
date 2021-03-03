@@ -1,0 +1,25 @@
+JsonFormat: 
+
+    {
+        primitiveFields: [{fieldName:"name", fieldType:"integer|double|boolean|string|object"}, ... ,{fieldName:"finalField", fieldType:"integer|double|boolean|string|object"} ]
+        nestedObjects: 
+        {
+            "objectName_0": 
+            {
+                 primitiveFields: [{fieldName:"name", fieldType:"integer|double|boolean|string|object"}, ... ,{fieldName:"finalField", fieldType:"integer|double|boolean|string|object"} ]
+                 nestedObjects: { ... }
+            } ,
+             "objectName_1": 
+            {
+                 primitiveFields: [{fieldName:"name", fieldType:"integer|double|boolean|string|object"}, ... ,{fieldName:"finalField", fieldType:"integer|double|boolean|string|object"} ]
+                 nestedObjects: { ... }
+            },
+            ...
+            ,
+             "objectName_N": 
+            {
+                 primitiveFields: [{fieldName:"name", fieldType:"integer|double|boolean|string|object"}, ... ,{fieldName:"finalField", fieldType:"integer|double|boolean|string|object"} ]
+                 nestedObjects: { ... }
+            }
+        }
+    }

@@ -8,14 +8,15 @@ import java.util.Map;
 import com.pixelcat.velocity.entity.exceptions.UnmappedFieldGeneratorException;
 import com.pixelcat.velocity.entity.jsonentities.entityInterfaces.GenericFieldGenerator;
 import com.pixelcat.velocity.entity.jsonentities.entityInterfaces.NumericFieldGenerator;
-import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.BooleanFieldGenerator;
-import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.FloatFieldGenerator;
-import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.IntegerFieldGenerator;
-import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.StringFieldGenerator;
+
+import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.fieldRestricitions.FieldRestrictionsLookUp;
+import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.generators.BooleanFieldGenerator;
+import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.generators.DoubleFieldGenerator;
+import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.generators.IntegerFieldGenerator;
+import com.pixelcat.velocity.entity.jsonentities.fieldbuilders.generators.StringFieldGenerator;
 import com.pixelcat.velocity.j2eepatterns.exceptions.StrategyNotFoundException;
 import com.pixelcat.velocity.j2eepatterns.patterninterfaces.KeyValueStrategy;
-import com.pixelcat.velocity.javaandjavascripttypes.JavascriptField;
-import com.pixelcat.velocity.javaandjavascripttypes.JavascriptType;
+import com.pixelcat.velocity.javaandjavascripttypes.javascript.JavascriptType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,16 +33,15 @@ public class FieldBuilderDelagateStrategy implements KeyValueStrategy<Integer, M
     private Map<String, GenericFieldGenerator> genericFieldGenerators;
 
     @Autowired
-    public FieldBuilderDelagateStrategy(IntegerFieldGenerator integerFieldBuilder, FloatFieldGenerator floatGenerator,
+    public FieldBuilderDelagateStrategy(IntegerFieldGenerator integerFieldBuilder, DoubleFieldGenerator doubleGenerator,
             StringFieldGenerator stringFieldBuilder, BooleanFieldGenerator booleanFieldBuilder) {
         this.genericFieldGenerators = new HashMap<>(); // create map for numeric generatiors
         this.numericGenerators = new HashMap<>(); // create map for string,boolean, and object geerators
 
         this.numericGenerators.put(Integer.class.getName(), integerFieldBuilder); // register float and int
-        this.numericGenerators.put(Float.class.getName(), floatGenerator);
+        this.numericGenerators.put(Double.class.getName(), doubleGenerator);
 
-        // register all non numeric data
-        this.numericGenerators.put(Float.class.getName(), floatGenerator);
+       
         this.genericFieldGenerators.put(String.class.getName(), stringFieldBuilder);
         this.genericFieldGenerators.put(Boolean.class.getName(), booleanFieldBuilder);
     }
@@ -64,8 +64,8 @@ public class FieldBuilderDelagateStrategy implements KeyValueStrategy<Integer, M
 
         if (numericFieldGenerator != null)
         {
-            Float max = (Float) restrictions.get(JavascriptField.MAX);
-            Float min = (Float) restrictions.get(JavascriptField.MIN);
+            Double max = (Double) restrictions.get(FieldRestrictionsLookUp.MAX);
+            Double min = (Double) restrictions.get(FieldRestrictionsLookUp.MIN);
             returnObject = numericFieldGenerator.generate(min, max).toString();
         }
         else 

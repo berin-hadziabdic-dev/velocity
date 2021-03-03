@@ -5,8 +5,9 @@ package com.pixelcat.velocity.entity.jsonentities.entityInterfaces;
  * this interface to return username appended with an Integer key: username0, username1, ... , usernameX.
  * The implementors of this interface should be completely stateless.
  */
-public interface GenericFieldGenerator<K> extends GeneratorTypeIdentifier{
+public interface GenericFieldGenerator<K> {
 
     public Object generate(K key) throws Exception;
+    public String getJavaReturnType();
     
 }

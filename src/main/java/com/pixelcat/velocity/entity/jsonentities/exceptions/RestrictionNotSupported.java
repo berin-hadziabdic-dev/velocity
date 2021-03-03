@@ -1,5 +1,8 @@
 package com.pixelcat.velocity.entity.jsonentities.exceptions;
 
+/**RestrictionNotSupported is an exception that can be thrown when a user submitted JSON contains an unrecognized restriction 
+ * type.
+ */
 public class RestrictionNotSupported extends RuntimeException
 {
     public RestrictionNotSupported(){

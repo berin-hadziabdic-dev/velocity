@@ -1,11 +1,10 @@
 package com.pixelcat.velocity.entity.jsonentities.entitybuilders;
 
 import java.util.List;
+import java.util.Map;
 
 import com.pixelcat.velocity.entity.jsonentities.dto.JsonFieldDTO;
 import com.pixelcat.velocity.entity.jsonentities.dto.JsonObjectTemplateDTO;
-import com.pixelcat.velocity.javaandjavascripttypes.JavascriptField;
-import com.pixelcat.velocity.javaandjavascripttypes.JavascriptType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,9 +25,7 @@ public class JsonBuilder {
         String jsonFieldValue = null;
         List<JsonFieldDTO> primitiveFields = jsonObjectTemplate.getPrimitiveFields();
 
-        if(jsonObjectTemplate.getNestedJsonFieldName() != null)
-            jsonBuilder.append( "\"" + jsonObjectTemplate.getNestedJsonFieldName() +"\"" + ": ");
-        jsonBuilder.append("{\n");
+
 
         for(JsonFieldDTO jsonElement: primitiveFields){
             jsonFieldValue = "\""  + jsonElement.getFieldName() + "\"" + " : ";
@@ -38,20 +35,14 @@ public class JsonBuilder {
             
         }
      
-        if(jsonObjectTemplate.hasNestedObjectFields())
-        {
-            
+        if(jsonObjectTemplate.getNestedObjects() != null && !jsonObjectTemplate.getNestedObjects().isEmpty()){
+            Map<String,JsonObjectTemplateDTO> nestedObjects = jsonObjectTemplate.getNestedObjects();
+            JsonObjectTemplateDTO nestedObjectIterator = null;
 
-            for(JsonObjectTemplateDTO jsonObjectTemplateDTO : jsonObjectTemplate.getNestedObjectFields())
-            {
-                jsonFieldValue =  this.buildJsonString(jsonObjectTemplateDTO);
-                jsonBuilder.append(jsonFieldValue);
-                jsonBuilder.append(",\n");
+            for(String jsonField: jsonObjectTemplate.getNestedObjects().keySet()){
+                nestedObjectIterator = jsonObjectTemplate.getNestedObjects().get(jsonField);
+                jsonBuilder.append(jsonField + " : " + this.buildJsonString(nestedObjectIterator));
             }
-            
-            jsonBuilder.setLength(jsonBuilder.length() - 1); //remove final comma
-
-        
         }
      
 

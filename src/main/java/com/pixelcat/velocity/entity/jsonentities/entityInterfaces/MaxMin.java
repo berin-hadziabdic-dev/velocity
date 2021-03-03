@@ -3,7 +3,7 @@ package com.pixelcat.velocity.entity.jsonentities.entityInterfaces;
 import java.util.Random;
 
 /**MaxMin is an abstract class that acts as a base for Numeric field generators. It produces 
- * a random float between a maximum and minimum value using the getRandBetweenManAndMin method.
+ * a random double between a maximum and minimum value using the getRandBetweenManAndMin method.
  * 
  */
 public abstract class  MaxMin {
@@ -22,7 +22,7 @@ public abstract class  MaxMin {
      * @return Float returns a float between max and min
      * @throws NullPointerException,ArithmeticException when min or max have invalid states.
      */
-    public Float getRandBetweenMaxAndMin(Float min, Float max) throws NullPointerException,ArithmeticException{
+    public Double getRandBetweenMaxAndMin(Double min,Double max) throws NullPointerException,ArithmeticException{
 
         if(max == null || min == null)
         throw new NullPointerException("Max or Min value in MaxMin class passed a null reference value.");
@@ -30,9 +30,9 @@ public abstract class  MaxMin {
         if(max <= min)
             throw new ArithmeticException("Max value in numeric MaxMin class cannot be less than min value.");
 
-        Float randomFloat = randomNumberGenerator.nextFloat();
-        Float maxMinScalingFactor = max-min; //absolute diiference between max and min
-        Float returnValue = maxMinScalingFactor * randomFloat + min; //offset scaled absolute difference from zero by min,
+        Double randomFloat = randomNumberGenerator.nextDouble();
+        Double maxMinScalingFactor = max-min; //absolute diiference between max and min
+        Double returnValue = maxMinScalingFactor * randomFloat + min; //offset scaled absolute difference from zero by min,
         
         return returnValue;
 
